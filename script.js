@@ -1,16 +1,31 @@
-// Dark Mode Toggle
+// script.js
+
+// Theme toggle functionality
 const themeToggle = document.getElementById('theme-toggle');
+let isDarkMode = false;
 
-// Check localStorage for the theme preference
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
-  document.body.classList.add('dark-mode');
-  themeToggle.textContent = 'Light Mode';
-}
-
-// Toggle dark mode and save preference
 themeToggle.addEventListener('click', () => {
-  const isDarkMode = document.body.classList.toggle('dark-mode');
-  themeToggle.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
-  localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  document.body.classList.toggle('dark-mode');
+  isDarkMode = !isDarkMode;
+  themeToggle.textContent = isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+});
+
+// Smooth scrolling for anchor links (optional, in case you have anchor links)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Example function to handle additional features
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('Document is fully loaded and parsed.');
 });
