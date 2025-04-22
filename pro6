@@ -7,7 +7,7 @@ pipeline
         {
             steps
             {
-                git branch: 'main', url: 'https://github.com/cmritsarada/exp6.git&#39; // Replace with your repository                  URL, replace #39 with single quote
+                git branch: 'main', url: 'https://github.com/cmritsarada/exp6.git'
             }
         }
 
